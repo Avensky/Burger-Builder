@@ -2,9 +2,13 @@ import React from 'react';
 import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import classes from './SideDrawer.module.css';
+import Backdrop from '../../UI/Backdrop/Backdrop';
+import Auxiliary from '../../../hoc/Auxiliary';
 
 const sideDrawer = (props) => {
     return (
+        <Auxiliary>
+        <Backdrop show />
         <div className={classes.SideDrawer}>
             <Logo height="11%" />
             <nav>
@@ -12,6 +16,8 @@ const sideDrawer = (props) => {
             </nav>
 
         </div>
+
+        </Auxiliary>
     );
 }
 
