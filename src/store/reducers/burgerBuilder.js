@@ -1,4 +1,4 @@
-import * as actionTypes from './actions';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     ingredients: {
@@ -31,7 +31,7 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.REMOVE_INGREDIENT:
             return {
                 ...state,
-                ingrediens: {
+                ingredients: {
                     ...state.ingredients,
                     [action.ingredientName]: state.ingredients[action.ingredientName] - 1
                 },
