@@ -23,22 +23,22 @@ export const authFail = (error) => {
     };
 };
 
-// export const logout = () => {
+export const logout = () => {
 //     localStorage.removeItem('token');
 //     localStorage.removeItem('expirationDate');
 //     localStorage.removeItem('userId');
-//     return {
-//         type: actionTypes.AUTH_LOGOUT
-//     };
-// };
-// 
-// export const checkAuthTimeout = (expirationTime) => {
-//     return dispatch => {
-//         setTimeout(() => {
-//             dispatch(logout());
-//         }, expirationTime * 1000);
-//     };
-// };
+    return {
+        type: actionTypes.AUTH_LOGOUT
+    };
+};
+ 
+export const checkAuthTimeout = (expirationTime) => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(logout());
+        }, expirationTime * 1000);
+    };
+};
 
 export const auth = (email, password, isSignup) => {
     return dispatch => {
@@ -60,7 +60,7 @@ export const auth = (email, password, isSignup) => {
 //               localStorage.setItem('expirationDate', expirationDate);
 //               localStorage.setItem('userId', response.data.localId);
                dispatch(authSuccess(response.data.idToken, response.data.localId));
-//               dispatch(checkAuthTimeout(response.data.expiresIn));
+               dispatch(checkAuthTimeout(response.data.expiresIn));
            })
            .catch(err => {
                console.log(err)
